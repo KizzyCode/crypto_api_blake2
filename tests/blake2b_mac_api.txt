@@ -1,0 +1,24 @@
+# Key < 1
+input_len_: 277
+key_len___: 0
+mac_len___: 64
+error_desc: Key is too small
+
+# Key > 64
+input_len_: 277
+key_len___: 65
+mac_len___: 64
+error_desc: Key is too large
+
+
+# MAC < 64
+input_len_: 277
+key_len___: 64
+mac_len___: 63
+error_desc: Invalid buffer length
+
+# MAC > 64
+input_len_: 277
+key_len___: 64
+mac_len___: 65
+error_desc: Invalid buffer length

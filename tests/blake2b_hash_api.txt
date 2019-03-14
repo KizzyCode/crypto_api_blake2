@@ -1,0 +1,15 @@
+# Hash < 64
+output_len: 63
+error_desc: Invalid buffer length
+
+# Hash > 64
+output_len: 65
+error_desc: Invalid buffer length
+
+# Varlen hash < 1
+output_len: 0
+error_desc: Buffer is too small
+
+# Varlen hash > 64
+output_len: 65
+error_desc: Buffer is too large

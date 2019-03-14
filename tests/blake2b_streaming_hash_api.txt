@@ -1,0 +1,23 @@
+# Varlen init < 1
+test_name_: test_varlen_init
+hash_len__: 0
+buffer_len: 32
+error_desc: Hash length is too small
+
+# Varlen init > 64
+test_name_: test_varlen_init
+hash_len__: 65
+buffer_len: 32
+error_desc: Hash length is too large
+
+# Varlen finish buf_len != hash_len
+test_name_: test_varlen_finish
+hash_len__: 47
+buffer_len: 46
+error_desc: Invalid buffer length
+
+# Constlen finish buf_len != 64
+test_name_: test_constlen_finish
+hash_len__: 0
+buffer_len: 63
+error_desc: Invalid buffer length

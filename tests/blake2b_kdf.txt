@@ -1,0 +1,23 @@
+# Test key derivation to conform with the `blake2b_simd`-crate (I was unable to find some reference test vectors)
+base_key: 5573656C657373206B65795E5E
+salt____: 536F6D652053616C7420313233343536
+info____: 546573746F6C6F706530313233343536
+key_____: b0cc23bc64b9eb818bf872d2abf9b814e655ed0f0c452886c38a6e
+
+# 64 / 16 / 16 / 64
+base_key: 0709ab5b0c78c26ffd34d3fb51be7395d996a5911f8cb92c9ddc2ebad8cd6a0f03035fb8dafdce2507db86c665afe342a91def84b45e58e2c7eb03246eb4198d
+salt____: 8288285429be6d700ba06f88
+info____: 33220b8bed2bf10fb9f21e6e
+key_____: 4b0e462ee551ab15b248fa7a8427041a08a2d01d1ce5fb3cd3b5dfa6fe9316299b70c0522c5410995078eef4fdaa819f3bd5701ae121b7e8a0ac007f706353d4
+
+# 64 / 00 / 16 / 32
+base_key: 0709ab5b0c78c26ffd34d3fb51be7395d996a5911f8cb92c9ddc2ebad8cd6a0f03035fb8dafdce2507db86c665afe342a91def84b45e58e2c7eb03246eb4198d
+salt____:
+info____: 33220b8bed2bf10fb9f21e6e
+key_____: dc1952255ad4b3740a0a27272d79a05470fe32beedcd1070709b74ea5bdb958d
+
+# 01 / 01 / 00 / 32
+base_key: 07
+salt____: 00
+info____:
+key_____: 113d807d2566e5f302d7d7acb7dff891afac348862e32454b2024561ed872ab7
