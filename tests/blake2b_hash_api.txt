@@ -1,15 +1,15 @@
 # Hash < 64
 output_len: 63
-error_desc: Invalid buffer length
+error_desc: `buf.len()` is invalid
 
 # Hash > 64
 output_len: 65
-error_desc: Invalid buffer length
+error_desc: `buf.len()` is invalid
 
 # Varlen hash < 1
 output_len: 0
-error_desc: Buffer is too small
+error_desc: `buf.len()` is too small
 
 # Varlen hash > 64
 output_len: 65
-error_desc: Buffer is too large
+error_desc: `buf.len()` is too large

@@ -1,4 +1,4 @@
-use crypto_api_blake2b::{ Blake2bError, Blake2b };
+use crypto_api_blake2b::{ Blake2Error, Blake2b };
 include!("read_test_vectors.rs");
 
 
@@ -86,8 +86,8 @@ impl ApiTestVector {
 		
 		// Test initialization error
 		let err = hash.varlen_init(self.hash_len__).unwrap_err();
-		match err.downcast_ref::<Blake2bError>() {
-			Some(Blake2bError::ApiMisuse(desc)) => assert_eq!(
+		match err.downcast_ref::<Blake2Error>() {
+			Some(Blake2Error::ApiMisuse(desc)) => assert_eq!(
 				*desc, self.error_desc,
 				"Invalid API-error description @{}", self.line
 			),
@@ -102,8 +102,8 @@ impl ApiTestVector {
 		// Test finalization error
 		let mut buf = vec![0; self.buffer_len];
 		let err = hash.finish(&mut buf).unwrap_err();
-		match err.downcast_ref::<Blake2bError>() {
-			Some(Blake2bError::ApiMisuse(desc)) => assert_eq!(
+		match err.downcast_ref::<Blake2Error>() {
+			Some(Blake2Error::ApiMisuse(desc)) => assert_eq!(
 				*desc, self.error_desc,
 				"Invalid API-error description @{}", self.line
 			),
@@ -118,8 +118,8 @@ impl ApiTestVector {
 		// Test finish error
 		let mut buf = vec![0; self.buffer_len];
 		let err = hash.finish(&mut buf).unwrap_err();
-		match err.downcast_ref::<Blake2bError>() {
-			Some(Blake2bError::ApiMisuse(desc)) => assert_eq!(
+		match err.downcast_ref::<Blake2Error>() {
+			Some(Blake2Error::ApiMisuse(desc)) => assert_eq!(
 				*desc, self.error_desc,
 				"Invalid API-error description @{}", self.line
 			),

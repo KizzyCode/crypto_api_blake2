@@ -28,7 +28,7 @@ All implementations pass all reference test vectors and are assumed to produce c
 in corner cases – we also use API test vectors to test our input validation.
 
 ### Memory Hygiene
-`crypto_api_blake2b` does not perform any attempts to erase sensitive contents from memory. However,
+`crypto_api_blake2` does not perform any attempts to erase sensitive contents from memory. However,
 all sensitive contents are stored in heap-allocated memory, so if you're using an erasing
 memory-allocator like [MAProper](https://crates.io/crates/ma_proper) they will be erased nontheless.
 

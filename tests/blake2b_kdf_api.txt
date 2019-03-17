@@ -3,14 +3,14 @@ base_key_len: 0
 salt_len____: 16
 info_len____: 16
 output_len__: 64
-error_desc__: Base key is too small
+error_desc__: `base_key.len()` is too small
 
 # Base key > 64
 base_key_len: 65
 salt_len____: 16
 info_len____: 16
 output_len__: 64
-error_desc__: Base key is too large
+error_desc__: `base_key.len()` is too large
 
 
 # Salt > 16
@@ -18,14 +18,14 @@ base_key_len: 64
 salt_len____: 17
 info_len____: 16
 output_len__: 64
-error_desc__: Salt is too large
+error_desc__: `salt.len()` is too large
 
 # Info > 16
 base_key_len: 64
 salt_len____: 16
 info_len____: 17
 output_len__: 64
-error_desc__: Info is too large
+error_desc__: `info.len()` is too large
 
 
 # Output < 1
@@ -33,11 +33,11 @@ base_key_len: 64
 salt_len____: 16
 info_len____: 16
 output_len__: 0
-error_desc__: Buffer is too small
+error_desc__: `buf.len()` is too small
 
 # Output > 64
 base_key_len: 64
 salt_len____: 16
 info_len____: 16
 output_len__: 65
-error_desc__: Buffer is too large
+error_desc__: `buf.len()` is too large

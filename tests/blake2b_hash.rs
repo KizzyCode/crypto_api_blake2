@@ -1,4 +1,4 @@
-use crypto_api_blake2b::{ Blake2bError, Blake2b };
+use crypto_api_blake2b::{ Blake2Error, Blake2b };
 include!("read_test_vectors.rs");
 
 
@@ -55,7 +55,7 @@ struct ApiTestVector {
 impl ApiTestVector {
 	fn test(&self) {
 		match self.error_desc {
-			"Invalid buffer length" => self.test_constlen(),
+			"`buf.len()` is invalid" => self.test_constlen(),
 			_ => self.test_varlen()
 		}
 	}
@@ -66,8 +66,8 @@ impl ApiTestVector {
 		// Create the invalid output buffer and compare the error
 		let mut buf = vec![0; self.output_len];
 		let err = hash.hash(&mut buf, b"Testolope").unwrap_err();
-		match err.downcast_ref::<Blake2bError>() {
-			Some(Blake2bError::ApiMisuse(desc)) => assert_eq!(
+		match err.downcast_ref::<Blake2Error>() {
+			Some(Blake2Error::ApiMisuse(desc)) => assert_eq!(
 				*desc, self.error_desc,
 				"Invalid API-error description @{}", self.line
 			),
@@ -81,8 +81,8 @@ impl ApiTestVector {
 		// Create the invalid output buffer and compare the error
 		let mut buf = vec![0; self.output_len];
 		let err = hash.varlen_hash(&mut buf, b"Testolope").unwrap_err();
-		match err.downcast_ref::<Blake2bError>() {
-			Some(Blake2bError::ApiMisuse(desc)) => assert_eq!(
+		match err.downcast_ref::<Blake2Error>() {
+			Some(Blake2Error::ApiMisuse(desc)) => assert_eq!(
 				*desc, self.error_desc,
 				"Invalid API-error description @{}", self.line
 			),

@@ -1,24 +1,51 @@
-# Key < 1
+# Constlen Key < 1
+test_name_: test_constlen
 input_len_: 277
 key_len___: 0
 mac_len___: 64
-error_desc: Key is too small
+error_desc: `key.len()` is too small
 
-# Key > 64
+# Constlen Key > 64
+test_name_: test_constlen
 input_len_: 277
 key_len___: 65
 mac_len___: 64
-error_desc: Key is too large
+error_desc: `key.len()` is too large
 
 
-# MAC < 64
+# Constlen MAC < 64
+test_name_: test_constlen
 input_len_: 277
 key_len___: 64
 mac_len___: 63
-error_desc: Invalid buffer length
+error_desc: `buf.len()` is invalid
 
-# MAC > 64
+# Constlen MAC > 64
+test_name_: test_constlen
 input_len_: 277
 key_len___: 64
 mac_len___: 65
-error_desc: Invalid buffer length
+error_desc: `buf.len()` is invalid
+
+
+# Varlen Key < 1
+test_name_: test_varlen
+input_len_: 277
+key_len___: 0
+mac_len___: 64
+error_desc: `key.len()` is too small
+
+# Varlen Key > 64
+test_name_: test_varlen
+input_len_: 277
+key_len___: 65
+mac_len___: 64
+error_desc: `key.len()` is too large
+
+
+# Varlen MAC > 64
+test_name_: test_varlen
+input_len_: 277
+key_len___: 64
+mac_len___: 65
+error_desc: `buf.len()` is too large

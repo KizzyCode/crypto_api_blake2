@@ -1,3 +1,9 @@
+# Shorter MAC
+key__: 546573746F6C6F7065
+input: 4C6F6C
+mac__: 1768676876dd52a3d3cafa61cfab3ea1181ec10bdaaa9232ae185f0190ef5dcd
+
+
 # Test vector from https://github.com/BLAKE2/BLAKE2/blob/master/testvectors/blake2b-kat.txt
 key__: 000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f
 input:
