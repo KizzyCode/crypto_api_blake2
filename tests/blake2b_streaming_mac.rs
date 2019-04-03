@@ -1,4 +1,4 @@
-use crypto_api_blake2b::{ Blake2Error, Blake2b };
+use crypto_api_blake2::{ Blake2Error, Blake2b };
 include!("read_test_vectors.rs");
 
 
