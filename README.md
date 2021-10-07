@@ -1,7 +1,10 @@
-[![License](https://img.shields.io/badge/License-BSD--2--Clause-blue.svg)](https://opensource.org/licenses/BSD-2-Clause)
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![Travis CI](https://travis-ci.org/KizzyCode/crypto_api_blake2.svg?branch=master)](https://travis-ci.org/KizzyCode/crypto_api_blake2)
+[![docs.rs](https://docs.rs/crypto_api_blake2/badge.svg)](https://docs.rs/crypto_api_blake2)
+[![License BSD-2-Clause](https://img.shields.io/badge/License-BSD--2--Clause-blue.svg)](https://opensource.org/licenses/BSD-2-Clause)
+[![License MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![crates.io](https://img.shields.io/crates/v/crypto_api_blake2.svg)](https://crates.io/crates/crypto_api_blake2)
+[![Download numbers](https://img.shields.io/crates/d/crypto_api_blake2.svg)](https://crates.io/crates/crypto_api_blake2)
 [![AppVeyor CI](https://ci.appveyor.com/api/projects/status/github/KizzyCode/crypto_api_blake2?svg=true)](https://ci.appveyor.com/project/KizzyCode/crypto-api-blake2)
+[![dependency status](https://deps.rs/crate/crypto_api_blake2/0.2.0/status.svg)](https://deps.rs/crate/crypto_api_blake2/0.2.0)
 
 
 # crypto_api_blake2
