@@ -71,25 +71,23 @@ impl Blake2b {
 	
 	/// Returns info about the hash
 	fn hash_info() -> HashInfo {
-		HashInfo{ name: "Blake2b", hash_len: 64, hash_len_r: 1..64 }
+		HashInfo{ name: "Blake2b", hash_len: 64, hash_len_r: 1..(64 + 1) }
 	}
 	/// Returns info about the MAC
 	fn mac_info() -> MacInfo {
-		MacInfo{ name: "Blake2b", is_otm: false, mac_len: 64, mac_len_r: 1..64, key_len_r: 1..64 }
+		MacInfo{ name: "Blake2b", is_otm: false, mac_len: 64, mac_len_r: 1..(64 + 1), key_len_r: 1..(64 + 1) }
 	}
 	/// Returns info about the KDF
 	fn kdf_info() -> KdfInfo {
 		KdfInfo {
-			name: "Blake2b", output_len_r: 1..64, key_len_r: 1..64,
-			salt_len_r: 0..16, info_len_r: 0..16
+			name: "Blake2b", output_len_r: 1..(64 + 1), key_len_r: 1..(64 + 1),
+			salt_len_r: 0..(16 + 1), info_len_r: 0..(16 + 1)
 		}
 	}
 }
 
 impl SecKeyGen for Blake2b {
-	fn new_sec_key(&self, buf: &mut[u8], rng: &mut SecureRng)
-		-> Result<usize, Box<dyn Error + 'static>>
-	{
+	fn new_sec_key(&self, buf: &mut[u8], rng: &mut dyn SecureRng) -> Result<usize, Box<dyn Error + 'static>> {
 		check_in!(buf.len(), 1..=64);
 		
 		rng.random(buf)?;
