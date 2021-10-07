@@ -95,8 +95,7 @@ impl B2Impl {
 	/// The compression function
 	fn compress(&mut self) {
 		/// G function of compression
-		fn g(r: usize, i: usize, v: &mut[u64], m: &mut[u64], a: usize, b: usize, c: usize, d: usize)
-		{
+		fn g(r: usize, i: usize, v: &mut[u64], m: &mut[u64], a: usize, b: usize, c: usize, d: usize) {
 			v[a] = add!(v[a], v[b], m[SIGMA[r][2 * i + 0] as usize]);
 			v[d] = (v[d] ^ v[a]).rotate_right(32);
 			v[c] = add!(v[c], v[d]);

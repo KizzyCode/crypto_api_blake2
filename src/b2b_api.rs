@@ -71,11 +71,11 @@ impl Blake2b {
 	
 	/// Returns info about the hash
 	fn hash_info() -> HashInfo {
-		HashInfo{ name: "Blake2b", hash_len: 64, hash_len_r: 1..(64 + 1) }
+		HashInfo { name: "Blake2b", hash_len: 64, hash_len_r: 1..(64 + 1) }
 	}
 	/// Returns info about the MAC
 	fn mac_info() -> MacInfo {
-		MacInfo{ name: "Blake2b", is_otm: false, mac_len: 64, mac_len_r: 1..(64 + 1), key_len_r: 1..(64 + 1) }
+		MacInfo { name: "Blake2b", is_otm: false, mac_len: 64, mac_len_r: 1..(64 + 1), key_len_r: 1..(64 + 1) }
 	}
 	/// Returns info about the KDF
 	fn kdf_info() -> KdfInfo {
@@ -119,17 +119,13 @@ impl Mac for Blake2b {
 		Self::mac_info()
 	}
 	
-	fn auth(&self, buf: &mut[u8], data: &[u8], key: &[u8])
-		-> Result<usize, Box<dyn Error + 'static>>
-	{
+	fn auth(&self, buf: &mut[u8], data: &[u8], key: &[u8]) -> Result<usize, Box<dyn Error + 'static>> {
 		check_eq!(buf.len(), 64);
 		self.varlen_auth(buf, data, key)
 	}
 }
 impl VarlenMac for Blake2b {
-	fn varlen_auth(&self, buf: &mut[u8], data: &[u8], key: &[u8])
-		-> Result<usize, Box<dyn Error + 'static>>
-	{
+	fn varlen_auth(&self, buf: &mut[u8], data: &[u8], key: &[u8]) -> Result<usize, Box<dyn Error + 'static>> {
 		check_in!(buf.len(), 1..=64);
 		check_in!(key.len(), 1..=64);
 		
@@ -143,9 +139,7 @@ impl Kdf for Blake2b {
 		Self::kdf_info()
 	}
 	
-	fn derive(&self, buf: &mut[u8], base_key: &[u8], salt: &[u8], info: &[u8])
-		-> Result<(), Box<dyn Error + 'static>>
-	{
+	fn derive(&self, buf: &mut[u8], base_key: &[u8], salt: &[u8], info: &[u8]) -> Result<(), Box<dyn Error + 'static>> {
 		check_in!(buf.len(), 1..=64);
 		check_in!(base_key.len(), 1..=64);
 		check_in!(salt.len(), 0..=16);
